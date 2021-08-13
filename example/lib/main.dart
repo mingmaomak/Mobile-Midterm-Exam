@@ -42,16 +42,20 @@ enum DraggingMode {
   Android,
 }
 
+int i = 0;
 List<ItemData> _items = [];
 class _MyHomePageState extends State<MyHomePage> {
   _MyHomePageState() {
-    for (int i = 0; i < 24; ++i) {
+    /* for (i = 0; i < 24; ++i) {
       String label = "List item $i";
       if (i == 5) {
         label += ". This item has a long label and will be wrapped.";
       }
       _items.add(ItemData(label, ValueKey(i)));
-    }
+    } */
+    _items.add(ItemData("จัดเตียง", ValueKey(0)));
+    _items.add(ItemData("กวาดบ้าน", ValueKey(1)));
+    _items.add(ItemData("เช็ดโต๊ะ", ValueKey(2)));
   }
 
   // Returns index of item with given key
@@ -87,6 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
   //
 
   DraggingMode _draggingMode = DraggingMode.iOS;
+
+  String TextFieldValue = '';
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,7 +149,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     childCount: _items.length,
                   ),
-                )),
+                )
+            ),
           ],
         ),
       ),
@@ -156,9 +163,10 @@ class _MyHomePageState extends State<MyHomePage> {
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  title: Text('Enter new item title'),
+                  title: Text('Enter new item'),
                   content: TextField(
                     onChanged: (value) {
+                      TextFieldValue = value;
                       // setState(() {
                       //   valueText = value;
                       // });
@@ -173,6 +181,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Text('OK'),
                       onPressed: () {
                         Navigator.pop(context);
+                        i++;
+                        _items.add(ItemData(TextFieldValue, ValueKey(i)));
+
                         // setState(() {
                         //   codeDialog = valueText;
                         //
