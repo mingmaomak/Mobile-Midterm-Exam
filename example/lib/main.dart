@@ -14,9 +14,7 @@ class MyApp extends StatelessWidget {
         dividerColor: Color(0x50000000),
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(
-          title: 'Mobile Midterm Exam'
-      ),
+      home: MyHomePage(title: 'Mobile Midterm Exam'),
     );
   }
 }
@@ -44,17 +42,10 @@ enum DraggingMode {
   Android,
 }
 
-int tempList = 10;
-tempListAdd(){
-  tempList++;
-}
-
+List<ItemData> _items = [];
 class _MyHomePageState extends State<MyHomePage> {
-  late List<ItemData> _items;
   _MyHomePageState() {
-    _items = [];
-    int t = 10;
-    for (int i = 0; i < tempList; ++i) {
+    for (int i = 0; i < 24; ++i) {
       String label = "List item $i";
       if (i == 5) {
         label += ". This item has a long label and will be wrapped.";
@@ -133,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
               pinned: true,
               expandedHeight: 150.0,
               flexibleSpace: const FlexibleSpaceBar(
-                title: const Text('Demo'),
+                title: const Text('Mobile Midterm Exam'),
               ),
             ),
             SliverPadding(
@@ -158,7 +149,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () => tempListAdd(),
+        onPressed: () {
+          // showDialog(
+          //   context: context,
+          //   builder: (BuildContext context) => _displayTextInputDialog(context),
+          //);
+        },
       ),
     );
   }
