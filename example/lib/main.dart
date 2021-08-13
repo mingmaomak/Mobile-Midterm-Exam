@@ -147,15 +147,50 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
+
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: Text('Enter new item title'),
+                  content: TextField(
+                    onChanged: (value) {
+                      // setState(() {
+                      //   valueText = value;
+                      // });
+                    },
+                    //controller: _textFieldController,
+                    decoration: InputDecoration(hintText: "Enter title here"),
+                  ),
+                  actions: <Widget>[
+                    FlatButton(
+                      color: Colors.green,
+                      textColor: Colors.white,
+                      child: Text('OK'),
+                      onPressed: () {
+                        Navigator.pop(context);
+                        // setState(() {
+                        //   codeDialog = valueText;
+                        //
+                        // });
+                      },
+                    ),
+
+                  ],
+                );
+              });
+
           // showDialog(
           //   context: context,
           //   builder: (BuildContext context) => _displayTextInputDialog(context),
           //);
         },
       ),
+
     );
   }
 }
