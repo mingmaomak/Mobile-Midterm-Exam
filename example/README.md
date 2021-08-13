@@ -1,11 +1,5 @@
-# Reorderable List in Flutter
+# Mobile Midterm Exam
 
-iOS-like proof of concept reorderable list with animations
-
-## Preview
-
-<img src="https://i.imgur.com/nuHCTdP.gif" width="300">
-
-## Getting Started
-
-See `lib/main.dart` for example usage
+## Source code
+https://github.com/knopp/flutter_reorderable_list
+https://flutter-examples.com/flutter-add-create-floating-action-button/
