@@ -10,4 +10,4 @@ https://www.appsdeveloperblog.com/alert-dialog-with-a-text-field-in-flutter/
 ## About
 Made on 2021-08013
 
-Software used: Android Studio 4.2.2
+Software used: Android Studio 4.2.2 for coding and Edge 92.0.902.67 for debugging
