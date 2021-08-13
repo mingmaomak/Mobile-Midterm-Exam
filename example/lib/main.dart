@@ -9,12 +9,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Rerderable List',
+      title: 'Mobile Midterm Exam',
       theme: ThemeData(
         dividerColor: Color(0x50000000),
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Reorderable List'),
+      home: MyHomePage(
+          title: 'Mobile Midterm Exam'
+      ),
     );
   }
 }
@@ -42,11 +44,17 @@ enum DraggingMode {
   Android,
 }
 
+int tempList = 10;
+tempListAdd(){
+  tempList++;
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   late List<ItemData> _items;
   _MyHomePageState() {
     _items = [];
-    for (int i = 0; i < 500; ++i) {
+    int t = 10;
+    for (int i = 0; i < tempList; ++i) {
       String label = "List item $i";
       if (i == 5) {
         label += ". This item has a long label and will be wrapped.";
@@ -147,6 +155,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 )),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () => tempListAdd(),
       ),
     );
   }
